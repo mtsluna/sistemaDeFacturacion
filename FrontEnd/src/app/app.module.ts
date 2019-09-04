@@ -8,6 +8,9 @@ import { NavbarComponent } from './components/shared/navbar/navbar.component';
 import {RouterModule} from '@angular/router';
 import { ProductosComponent } from './components/productos/productos.component';
 import { FacturaComponent } from './components/factura/factura.component';
+import {HttpClientModule} from '@angular/common/http';
+import { EntidadComponent } from './components/productos/entidad/entidad.component';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -15,12 +18,15 @@ import { FacturaComponent } from './components/factura/factura.component';
     HomeComponent,
     NavbarComponent,
     ProductosComponent,
-    FacturaComponent
+    FacturaComponent,
+    EntidadComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     RouterModule,
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

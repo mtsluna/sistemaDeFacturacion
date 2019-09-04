@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {Producto} from '../../models/producto';
+import {ProductoService} from '../../services/producto.service';
 
 @Component({
   selector: 'app-productos',
@@ -7,9 +9,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductosComponent implements OnInit {
 
-  constructor() { }
+  //productos: Producto = {
+  //  id: 0,
+  //  nombre: ' ',
+  //  precioUnitario: 0
+  //};
+
+  productos: Producto[] = [];
+
+  constructor(private pService: ProductoService) { }
 
   ngOnInit() {
+    this.pService.getAll().subscribe((data)=>{
+      this.productos = data;
+    });
+  }
+
+  delete(id:number){
+    this.pService.delete(id).subscribe((data)=>{
+      location.reload();
+    });
   }
 
 }

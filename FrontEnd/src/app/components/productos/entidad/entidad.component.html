@@ -1,0 +1,18 @@
+<div class="col-12">
+  <br>
+  <div class="form-group">
+    <label>ID</label>
+    <input type="text" disabled class="form-control" [(ngModel)]="producto.id" placeholder="0">
+  </div>
+  <div class="form-group">
+    <label>Nombre</label>
+    <input type="text" id="nombre" class="form-control" [(ngModel)]="producto.nombre" placeholder="Alfajor grandote">
+  </div>
+  <div class="form-group">
+    <label>Precio</label>
+    <input type="text" id="precioUnitario" [(ngModel)]="producto.precioUnitario" class="form-control" placeholder="15">
+  </div>
+
+  <button class="btn btn-success btn-block" (click)="save()">GUARDAR</button>
+  <button class="btn btn-danger btn-block" [routerLink]="['/productos']">VOLVER</button>
+</div>

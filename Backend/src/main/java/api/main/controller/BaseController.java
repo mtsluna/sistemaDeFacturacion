@@ -28,7 +28,7 @@ public abstract class BaseController <DTO>{
 		
 		try {
 			
-			return ResponseEntity.status(HttpStatus.FOUND).body(service.findAll());
+			return ResponseEntity.status(HttpStatus.OK).body(service.findAll());
 			
 		} catch (Exception e) {
 			
@@ -45,7 +45,7 @@ public abstract class BaseController <DTO>{
 		
 		try {
 			
-			return ResponseEntity.status(HttpStatus.FOUND).body(service.findById(id));
+			return ResponseEntity.status(HttpStatus.OK).body(service.findById(id));
 			
 		} catch (Exception e) {
 			
@@ -64,7 +64,7 @@ public abstract class BaseController <DTO>{
 		try {
 			
 			DTO result = (DTO) service.save(dto);
-			return ResponseEntity.status(HttpStatus.FOUND).body(result);
+			return ResponseEntity.status(HttpStatus.OK).body(result);
 			
 		} catch (Exception e) {
 			
@@ -82,7 +82,7 @@ public abstract class BaseController <DTO>{
 		try {
 			
 			DTO result = (DTO) service.update(id, dto);
-			return ResponseEntity.status(HttpStatus.FOUND).body(result);
+			return ResponseEntity.status(HttpStatus.OK).body(result);
 			
 		} catch (Exception e) {
 			

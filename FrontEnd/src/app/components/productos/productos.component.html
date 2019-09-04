@@ -1,3 +1,32 @@
-<p>
-  productos works!
-</p>
+<div class="col-12">
+
+  <div>
+    <br>
+    <button class="btn btn-primary btn-block" [routerLink]="['/productos/0']">NUEVO</button>
+    <br>
+  </div>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Precio Unitario</th>
+        <th scope="col">Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let producto of productos">
+        <th scope="row">{{producto.id}}</th>
+        <td>{{producto.nombre}}</td>
+        <td>{{producto.precioUnitario}}</td>
+        <td>
+          <div class="row text-right">
+            <button class="btn btn-warning" [routerLink]="['/productos/'+producto.id]">EDITAR</button>
+            <button class="btn btn-danger"  (click)="delete(producto.id)">ELIMINAR</button>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
