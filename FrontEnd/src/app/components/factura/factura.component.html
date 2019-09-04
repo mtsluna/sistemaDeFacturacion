@@ -1,3 +1,30 @@
-<p>
-  factura works!
-</p>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Cantidad</th>
+      <th scope="col">Producto</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let detalle of detalles">
+      <td>{{detalle.producto.id}}</td>
+      <td>{{detalle.cantidad}}</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="col-12"> <!-- *ngFor="let i of arr(num).fill(1)" -->
+  <br>
+  <div class="form-group">
+    <label>Cantidad</label>
+    <input type="text" class="form-control" [(ngModel)]="cantidad" placeholder="Ej: 2">
+  </div>
+  <div class="form-group">
+    <label>Producto</label>
+    <select class="form-control" [(ngModel)]="id">
+      <option [value]="1">Alfajor</option>
+    </select>
+  </div>
+</div>
+
+<button class="btn btn-primary btn-block" (click)="more()">AGREGAR OTRO PRODUCTO</button>
