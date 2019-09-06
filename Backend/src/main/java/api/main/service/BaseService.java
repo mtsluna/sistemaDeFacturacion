@@ -82,6 +82,7 @@ public abstract class BaseService <ENTITY extends Base, DTO extends BaseDTO> imp
 			
 		} catch (Exception e) {
 			
+			System.out.println(e);
 			throw new Exception();
 			
 		}

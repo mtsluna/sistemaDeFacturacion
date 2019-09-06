@@ -11,6 +11,7 @@ import { FacturaComponent } from './components/factura/factura.component';
 import {HttpClientModule} from '@angular/common/http';
 import { EntidadComponent } from './components/productos/entidad/entidad.component';
 import {FormsModule} from '@angular/forms';
+import { A1Component } from './components/a1/a1.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import {FormsModule} from '@angular/forms';
     NavbarComponent,
     ProductosComponent,
     FacturaComponent,
-    EntidadComponent
+    EntidadComponent,
+    A1Component
   ],
   imports: [
     BrowserModule,

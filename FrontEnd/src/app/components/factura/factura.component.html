@@ -1,30 +1,73 @@
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">Cantidad</th>
-      <th scope="col">Producto</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let detalle of detalles">
-      <td>{{detalle.producto.id}}</td>
-      <td>{{detalle.cantidad}}</td>
-    </tr>
-  </tbody>
-</table>
+<div align="center">
+  <div class="col-10">
 
-<div class="col-12"> <!-- *ngFor="let i of arr(num).fill(1)" -->
-  <br>
-  <div class="form-group">
-    <label>Cantidad</label>
-    <input type="text" class="form-control" [(ngModel)]="cantidad" placeholder="Ej: 2">
-  </div>
-  <div class="form-group">
-    <label>Producto</label>
-    <select class="form-control" [(ngModel)]="id">
-      <option [value]="1">Alfajor</option>
-    </select>
+    <br>
+
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <div class="input-group-text">Cantidad</div>
+      </div>
+      <input type="number" class="form-control" [(ngModel)]="cantidad" placeholder="Ej: 2">
+    </div>
+
+    <br>
+
+    <div class="form-row">
+      <div class="col input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text">Cantidad</div>
+        </div>
+        <input type="number" class="form-control" [(ngModel)]="cantidad" placeholder="Ej: 2">
+      </div>
+
+      <div class="col input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text">Producto</div>
+        </div>
+        <select class="form-control" [(ngModel)]="v">
+          <option *ngFor="let producto of productos; let index = index" [selected]="index == 1" [value]="producto.id+'&'+producto.nombre+'&'+producto.precioUnitario">{{producto.nombre}} - {{producto.precioUnitario | currency}}</option>
+        </select>
+      </div>
+    </div>
+
+    <br>
+
+    <button class="btn btn-primary btn-block" (click)="more()">AGREGAR OTRO PRODUCTO</button>
+
+    <br>
+
+    <div class="table-wrapper-scroll-y my-custom-scrollbar">
+      <table class="table table-bordered table-striped mb-0">
+        <thead>
+          <tr>
+            <th scope="col">Cantidad</th>
+            <th scope="col">ID del producto</th>
+            <th scope="col">Nombre del producto</th>
+            <th scope="col">Precio unitario</th>
+            <th scope="col">Monto</th>
+            <th scope="col">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let detalle of detalles">
+            <td>{{detalle.cantidad}}</td>
+            <td>{{detalle.producto.id}}</td>
+            <td>{{detalle.producto.nombre}}</td>
+            <td>{{detalle.producto.precioUnitario}}</td>
+            <td>{{detalle.producto.precioUnitario*detalle.cantidad}}</td>
+            <td>
+              <button class="btn btn-danger btn-block" (click)="quitar(detalle.id)">ELIMINAR</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
   </div>
 </div>
 
-<button class="btn btn-primary btn-block" (click)="more()">AGREGAR OTRO PRODUCTO</button>
+<div class="col-12"> <!-- *ngFor="let i of arr(num).fill(1)" -->
+
+</div>
+
+
