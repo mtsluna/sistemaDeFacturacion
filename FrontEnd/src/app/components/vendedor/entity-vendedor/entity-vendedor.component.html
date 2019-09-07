@@ -1,0 +1,32 @@
+<div class="col-12">
+  <br>
+  <div class="form-group">
+    <label>ID</label>
+    <input type="text" disabled class="form-control" [(ngModel)]="vendedor.id" placeholder="0">
+  </div>
+  <div class="form-group">
+    <label>Nombre</label>
+    <input type="text" class="form-control" [(ngModel)]="vendedor.nombre" placeholder="Matías">
+  </div>
+  <div class="form-group">
+    <label>Apellido</label>
+    <input type="text" class="form-control" [(ngModel)]="vendedor.apellido" placeholder="Luna">
+  </div>
+  <div class="form-group">
+    <label>Documento</label>
+    <input type="text" class="form-control" [(ngModel)]="vendedor.documento" placeholder="41659894">
+  </div>
+  <div class="form-group">
+    <label>Dirección</label>
+    <input type="text" class="form-control" [(ngModel)]="vendedor.direccion" placeholder="Chacabuco 441">
+  </div>
+  <div class="form-group">
+    <label>Telefono</label>
+    <input type="text" class="form-control" [(ngModel)]="vendedor.sector" placeholder="Programación">
+  </div>
+
+  <button class="btn btn-success btn-block" (click)="save()">GUARDAR</button>
+  <button class="btn btn-danger btn-block" [routerLink]="['/vendedores']">VOLVER</button>
+</div>
+
+<br>

@@ -1,0 +1,38 @@
+<div class="col-12">
+
+  <div>
+    <br>
+    <button class="btn btn-primary btn-block" [routerLink]="['/vendedores/0']">NUEVO</button>
+    <br>
+  </div>
+
+  <table class="table table-bordered table-striped">
+    <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Apellido</th>
+      <th scope="col">Documento</th>
+      <th scope="col">Dirección</th>
+      <th scope="col">Sector</th>
+      <th scope="col">Acciones</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let vendedor of vendedores">
+      <th scope="row">{{vendedor.id}}</th>
+      <td>{{vendedor.nombre}}</td>
+      <td>{{vendedor.apellido}}</td>
+      <td>{{vendedor.documento}}</td>
+      <td>{{vendedor.direccion}}</td>
+      <td>{{vendedor.sector}}</td>
+      <td>
+        <div class="row">
+          <button class="btn btn-warning" [routerLink]="['/vendedores/'+vendedor.id]">EDITAR</button>
+          <button class="btn btn-danger"  (click)="delete(vendedor.id)">ELIMINAR</button>
+        </div>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

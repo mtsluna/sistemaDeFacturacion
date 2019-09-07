@@ -11,7 +11,11 @@ import { FacturaComponent } from './components/factura/factura.component';
 import {HttpClientModule} from '@angular/common/http';
 import { EntidadComponent } from './components/productos/entidad/entidad.component';
 import {FormsModule} from '@angular/forms';
-import { A1Component } from './components/a1/a1.component';
+import { ClienteComponent } from './components/cliente/cliente.component';
+import { VendedorComponent } from './components/vendedor/vendedor.component';
+import {EntityComponentCliente} from './components/cliente/entity/entity.component';
+import { EntityVendedorComponent } from './components/vendedor/entity-vendedor/entity-vendedor.component';
+import { ListadoComponent } from './components/factura/listado/listado.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +25,11 @@ import { A1Component } from './components/a1/a1.component';
     ProductosComponent,
     FacturaComponent,
     EntidadComponent,
-    A1Component
+    ClienteComponent,
+    VendedorComponent,
+    EntityComponentCliente,
+    EntityVendedorComponent,
+    ListadoComponent,
   ],
   imports: [
     BrowserModule,

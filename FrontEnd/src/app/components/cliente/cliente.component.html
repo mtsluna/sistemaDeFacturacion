@@ -1,0 +1,38 @@
+<div class="col-12">
+
+  <div>
+    <br>
+    <button class="btn btn-primary btn-block" [routerLink]="['/clientes/0']">NUEVO</button>
+    <br>
+  </div>
+
+  <table class="table table-bordered table-striped">
+    <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Apellido</th>
+      <th scope="col">Documento</th>
+      <th scope="col">Dirección</th>
+      <th scope="col">Telefono</th>
+      <th scope="col">Acciones</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let cliente of clientes">
+      <th scope="row">{{cliente.id}}</th>
+      <td>{{cliente.nombre}}</td>
+      <td>{{cliente.apellido}}</td>
+      <td>{{cliente.documento}}</td>
+      <td>{{cliente.direccion}}</td>
+      <td>{{cliente.telefono}}</td>
+      <td>
+        <div class="row text-right">
+          <button class="btn btn-warning" [routerLink]="['/clientes/'+cliente.id]">EDITAR</button>
+          <button class="btn btn-danger"  (click)="delete(cliente.id)">ELIMINAR</button>
+        </div>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

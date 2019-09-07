@@ -32,27 +32,9 @@ public class Persona extends Base{
     @Column(name = "persona_direccion")
     protected String direccion;
     
-    //@ManyToMany(
-    //		mappedBy = "personas",
-	//		fetch = FetchType.LAZY,
-    //        cascade = {
-    //            CascadeType.PERSIST,
-    //            CascadeType.MERGE,
-    //            CascadeType.DETACH
-    //        }
-	//)
-	@ManyToMany(
-			fetch = FetchType.LAZY
-            //cascade = {
-            //    CascadeType.PERSIST,
-            //    CascadeType.MERGE,
-            //    CascadeType.ALL
-            //}
-	)
-	@JoinTable(
-			name = "api_comprobante_persona",
-			joinColumns = @JoinColumn(name = "persona_id"),
-			inverseJoinColumns = @JoinColumn(name = "comprobante_id")
+    @ManyToMany(
+		mappedBy = "personas",
+		fetch = FetchType.LAZY
 	)
     private List<Comprobante> comprobantes = new ArrayList<>();   
     

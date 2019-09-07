@@ -24,6 +24,6 @@ public class FacturaService extends BaseService<Factura, FacturaDTO>{
 	public FacturaService(FacturaRepository facturaRepository) {
 		super(facturaRepository, FacturaDTO.class, Factura.class);
 		this.facturaRepository = facturaRepository;
-	}
-	
+	}	
+		
 }

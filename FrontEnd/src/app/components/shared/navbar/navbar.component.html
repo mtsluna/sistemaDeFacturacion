@@ -10,7 +10,10 @@
         <a class="nav-link" routerLink="/home">Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" [routerLink]="['/facturas']">Facturas</a>
+        <button class="btn btn-success btn-block" [routerLink]="['/facturas']">Generar factura</button>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/facturas/listado']">Ver factura</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" [routerLink]="['/productos']">Productos</a>

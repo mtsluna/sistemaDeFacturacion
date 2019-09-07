@@ -12,7 +12,9 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.JoinColumn;
 
 @Entity(name = "api_comprobante")
 @DiscriminatorColumn(name = "discriminator")
@@ -25,27 +27,16 @@ public class Comprobante extends Base{
 	@Column(name = "comprobante_fecha")
 	private String fecha;
 	
-	//@ManyToMany(
-	//		fetch = FetchType.LAZY,
-    //        cascade = {
-    //            CascadeType.PERSIST,
-    //            CascadeType.MERGE,
-    //            CascadeType.DETACH
-    //        }
-	//)
-	//@JoinTable(
-	//		name = "api_comprobante_persona",
-	//		joinColumns = @JoinColumn(name = "comprobante_id"),
-	//		inverseJoinColumns = @JoinColumn(name = "persona_id")
-	//)
 	@ManyToMany(
-    		mappedBy = "comprobantes",
-			fetch = FetchType.LAZY,
-            cascade = {
-                CascadeType.PERSIST,
-                CascadeType.MERGE,
-                CascadeType.ALL
-            }
+		fetch = FetchType.LAZY,
+        cascade = {
+        	CascadeType.DETACH
+        }
+	)
+	@JoinTable(
+			name = "api_comprobante_persona",
+			joinColumns = @JoinColumn(name = "comprobante_id"),
+			inverseJoinColumns = @JoinColumn(name = "persona_id")
 	)
 	private List<Persona> personas = new ArrayList<>();
 

@@ -1,0 +1,39 @@
+<div class="col-12">
+
+  <div>
+    <br>
+    <button class="btn btn-primary btn-block" [routerLink]="['/productos/0']">NUEVO</button>
+    <br>
+  </div>
+
+  <table class="table table-bordered table-striped">
+    <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Numero</th>
+      <th scope="col">Tipo</th>
+      <th scope="col">Fecha</th>
+      <th scope="col">Vendedor</th>
+      <th scope="col">Cliente</th>
+      <th scope="col">Detalle</th>
+      <th scope="col">Acciones</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let factura of facturas">
+      <th scope="row">{{factura.id}}</th >
+      <td>{{factura.numero}}</td>
+      <td>{{factura.tipo}}</td>
+      <td>{{factura.fecha}}</td>
+      <td>{{factura.personas[0].documento}}</td>
+      <td>{{factura.personas[1].documento}}</td>
+      <td>{{factura.detalles.length+' producto/s'}}</td>
+      <td>
+        <div class="row text-right">
+          <button class="btn btn-danger"  (click)="delete(factura.id)">ELIMINAR</button>
+        </div>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
