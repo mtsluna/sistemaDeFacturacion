@@ -5,12 +5,14 @@ import java.util.List;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import api.main.DTO.ProductoDTO;
@@ -20,13 +22,23 @@ import api.main.service.ProductoService;
 @Controller
 @RestController
 @RequestMapping(path = "api/v1/producto")
-public class ProductoController extends BaseController<ProductoDTO>{
+public class ProductoController /*extends BaseController<ProductoDTO>*/{
 	
 	private ProductoService productoService;
 	
 	public ProductoController(ProductoService productoService) {
-		super(productoService);
+		//super(productoService);
 		this.productoService = productoService;
+	}
+	
+	@GetMapping("/")
+	@CrossOrigin(origins = "*")
+	public ResponseEntity getAll(@RequestParam(value = "page", defaultValue = "0") int page, @RequestParam(value = "size", defaultValue = "10") int size) {
+		
+		System.out.println("Pagina: "+page);
+		System.out.println("Tamaño: "+size);
+		
+		return null;		
 	}
 	
 }
