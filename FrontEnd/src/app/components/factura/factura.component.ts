@@ -10,6 +10,7 @@ import {Vendedor} from '../../models/vendedor';
 import {Factura} from '../../models/factura';
 import {FacturaService} from '../../services/factura.service';
 import {Persona} from '../../models/persona';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-factura',
@@ -45,7 +46,7 @@ export class FacturaComponent implements OnInit {
     personas: null
   };
 
-  constructor(private productoService: ProductoService, private clienteService: ClienteService, private vendedorService: VendedorService, private facturaService:FacturaService) {
+  constructor(private rou:Router, private productoService: ProductoService, private clienteService: ClienteService, private vendedorService: VendedorService, private facturaService:FacturaService) {
     this.getProductos();
     this.getClientes();
     this.getVendedores();
@@ -144,7 +145,7 @@ export class FacturaComponent implements OnInit {
     this.factura.detalles = this.detalles;
 
     this.facturaService.post(this.factura).subscribe((data)=>{
-
+		this.rou.navigate(['/facturas/listado']);
     });
   }
 

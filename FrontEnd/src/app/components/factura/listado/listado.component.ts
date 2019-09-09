@@ -13,12 +13,16 @@ export class ListadoComponent implements OnInit {
 
   facturas: Factura[] = [];
 
-  constructor(private fService: FacturaService) { }
-
-  ngOnInit() {
-    this.fService.getAll().subscribe((data)=>{
+  constructor(private fService: FacturaService) {
+	this.fService.getAll().subscribe((data)=>{
+	  console.log('Hola');
+	  this.facturas = [];
       this.facturas = data;
     });
+  }
+
+  ngOnInit() {
+	  
   }
 
   delete(id:number){
